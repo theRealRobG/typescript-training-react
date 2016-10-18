@@ -1,0 +1,53 @@
+{
+    "slotsCount": 8,
+    "items": [
+        {
+            "itemName": "item1",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        },
+        {
+            "itemName": "item2",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        },
+        {
+            "itemName": "item3",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        },
+        {
+            "itemName": "item4",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        },
+        {
+            "itemName": "item5",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        },
+        {
+            "itemName": "item6",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        },
+        {
+            "itemName": "item7",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        },
+        {
+            "itemName": "item8",
+            "price": 5,
+            "count": 3,
+            "imageUrl": "images/can.png"
+        }
+    ]
+}
