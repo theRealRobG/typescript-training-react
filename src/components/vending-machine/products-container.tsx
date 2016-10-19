@@ -2,7 +2,7 @@ import React from 'react';
 import Slot from './slot';
 import { Item } from '../../services/config';
 
-class Props {
+interface Props {
     items: Array<Item>;
     rows: number;
     columns: number;
