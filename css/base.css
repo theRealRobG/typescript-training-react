@@ -1,12 +1,3 @@
-body {
-  background: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
-  margin: 0;
-  padding: 30px;
-}
-
 a {
   color: #4183c4;
   text-decoration: none;
@@ -58,34 +49,137 @@ ul {
   padding-left: 30px;
 }
 
+body {
+    background: #000;
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+    padding: 30px;
+    color: red;
+}
+
+#log-output {
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+
+    font-family: Courier New, Courier, monospace;
+    font-size: 16px;
+    color: lawngreen;
+
+    width:500px;
+}
+
+.slot {
+    display: inline-block;
+    background-color: grey;
+    height: 200px;
+    width: 130px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slot-label {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: calc(100% - 20px);
+    background: black;
+    height: 20px;
+    line-height: 20px;
+}
+
+.item {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: 60px;
+    z-index: 4;
+}
+.item:nth-child(2) {
+    background-position-y: 45px;
+    z-index: 3;
+}
+.item:nth-child(3) {
+    background-position-y: 30px;
+    z-index: 2;
+}
+.item:nth-child(4) {
+    background-position-y: 15px;
+    z-index: 1;
+}
+.item:nth-child(n+4) {
+    z-index: 0;
+}
+
 #vending-machine {
-  width: 500px;
-  height: 500px;
-  padding:5px;
+    position: relative;
+    display: block;
+    background-color: white;
+    margin-left: 100px;
+    width: calc(100% - 100px);
 }
 
-#vending-machine div {
-  height: calc(100% - 10px);
-  width: calc(100% - 10px);
-  padding: 5px;
+#product-container {
+    position: absolute;
+    left: 0;
 }
 
-.border {
-  outline: 1px solid black;
+.container {
+    background-color: #ddd;
+    width: 500px;
+    height: 500px;
+    display: block;
+    padding: 0 25px;
+    box-sizing: border-box;
+    overflow: scroll;
 }
 
-.border.red {
-  outline-color: red;
+#keyboard {
+    position: absolute;
+    top: 0;
+    left: 700px;
+    height: 280px;
+    width: 330px;
+    padding: 0 105px;
+    box-sizing: border-box;
 }
 
-.border.blue {
-  outline-color: blue;
+.button {
+    height: 40px;
+    width: 40px;
+    box-sizing: border-box;
+}
+.button-j {
+    margin-left: 40px;
+}
+.button-cancel, .button-enter {
+    position: absolute;
+    width: 60px;
+    bottom: 40px;
+}
+.button-cancel {
+    left: 105px;
+}
+.button-enter {
+    right: 105px;
 }
 
-.border.green {
-  outline-color: green;
-}
-
-.border.dotted {
-  outline-style: dotted;
+#display {
+    position: absolute;
+    left: 700px;
+    top: 300px;
+    height: 100px;
+    width: 330px;
+    background-color: lightblue;
+    color: black;
+    padding: 30px;
+    box-sizing: border-box;
 }

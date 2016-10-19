@@ -23,8 +23,12 @@ export default class VendingMachine extends React.Component<{}, State> {
         return (
             <div>
                 <h1>Hello Vending Machine!</h1>
-                <div id="vending-machine" className="border red">
-                    <ProductsContainer items={this.state.config.items} rows={this.state.config.rows} columns={this.state.config.columns} />
+                <div id="vending-machine" className="container">
+                    <ProductsContainer 
+                        items={this.state.config.items}
+                        rows={this.state.config.rows}
+                        columns={this.state.config.columns} 
+                    />
                     <Display />
                     <Keyboard />
                 </div>
