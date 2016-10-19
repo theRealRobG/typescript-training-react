@@ -21,7 +21,10 @@
     "webpack": "^1.13.2"
   },
   "scripts": {
-    "dev":"webpack-dev-server",
+    "dev": "webpack-dev-server",
     "build": "webpack --progress --colors"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.16.2"
   }
 }

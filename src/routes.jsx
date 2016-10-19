@@ -7,6 +7,6 @@ import Administration from './components/administration';
 export default (
   <Route path="/" component={Page}>
     <IndexRoute component={VendingMachine} />
-    <Route path="admin" component={Administration} />
+    <Route path="/admin" component={Administration} />
   </Route>
 );

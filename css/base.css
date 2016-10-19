@@ -57,3 +57,35 @@ p, ul {
 ul {
   padding-left: 30px;
 }
+
+#vending-machine {
+  width: 500px;
+  height: 500px;
+  padding:5px;
+}
+
+#vending-machine div {
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
+  padding: 5px;
+}
+
+.border {
+  outline: 1px solid black;
+}
+
+.border.red {
+  outline-color: red;
+}
+
+.border.blue {
+  outline-color: blue;
+}
+
+.border.green {
+  outline-color: green;
+}
+
+.border.dotted {
+  outline-style: dotted;
+}
