@@ -4,7 +4,7 @@ import Display from './vending-machine/display';
 import Keyboard from './vending-machine/keyboard';
 import { getConfig, Config} from '../services/config';
 
-class State {
+interface State {
     config: Config;
 }
 
