@@ -4,14 +4,13 @@ const path = require('path');
 const isDebug = process.env.NODE_ENV !== 'production';
 
 const config = {
-    context: path.join(__dirname, '/public'),
     devtool: isDebug ? 'inline-sourcemap' : null,
     entry: './src/app.js',
     resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
     output: {
-        path: path.join(__dirname, './public/dist'),
+        path: path.join(__dirname, './dist'),
         filename: 'bundle.min.js'
     },
     plugins: isDebug ? [] : [
@@ -22,7 +21,7 @@ const config = {
     module: {
         loaders: [
             {test: /\.ts(x?)$/, exclude: /node_modules/, loaders: ['babel', 'ts']},
-            {test: /\.js(x?)$/, exclude: /(node_modules\/|server\/)/, loader: 'babel'}
+            {test: /\.js(x?)$/, exclude: /node_modules/, loader: 'babel'}
         ]
     }
 };

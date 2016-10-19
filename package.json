@@ -1,10 +1,5 @@
 {
-  "name": "react-tutorial",
-  "version": "0.0.0",
-  "private": true,
-  "license": "see LICENSE file",
-  "description": "Code from the React tutorial.",
-  "main": "server/server.js",
+  "name": "react-typescript",
   "dependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.17.0",
@@ -25,29 +20,8 @@
     "typescript": "^2.0.3",
     "webpack": "^1.13.2"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm-run-all --parallel run:webpack run:server",
-    "run:server": "node server/server.js",
-    "run:webpack": "webpack --progress --colors --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/reactjs/react-tutorial.git"
-  },
-  "keywords": [
-    "react",
-    "tutorial",
-    "comment",
-    "example"
-  ],
-  "author": "petehunt",
-  "bugs": {
-    "url": "https://github.com/reactjs/react-tutorial/issues"
-  },
-  "homepage": "https://github.com/reactjs/react-tutorial",
-  "engines": {
-    "node": "0.12.x"
+    "dev":"webpack-dev-server",
+    "build": "webpack --progress --colors --watch"
   }
 }
