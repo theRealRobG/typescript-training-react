@@ -22,6 +22,6 @@
   },
   "scripts": {
     "dev":"webpack-dev-server",
-    "build": "webpack --progress --colors --watch"
+    "build": "webpack --progress --colors"
   }
 }

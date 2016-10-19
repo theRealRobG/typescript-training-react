@@ -1,4 +1,4 @@
-export function getConfig() {
+export function getConfig(){
     return {
         rows: 4,
         columns: 3,

@@ -5,9 +5,9 @@ const isDebug = process.env.NODE_ENV !== 'production';
 
 const config = {
     devtool: isDebug ? 'inline-sourcemap' : null,
-    entry: './src/app.js',
+    entry: './src/app.jsx',
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx']
     },
     output: {
         path: path.join(__dirname, './dist'),
