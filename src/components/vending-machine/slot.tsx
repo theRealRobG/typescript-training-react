@@ -1,10 +1,15 @@
 import React from 'react'
+import { Item } from '../../services/config';
 
-export default class Slot extends React.Component<{}, {}> {
+interface Props {
+    item: Item
+}
+
+export default class Slot extends React.Component<Props, {}> {
     render() {
         return (
             <div class="slot">
-                Slot
+                Slot containing {this.props.item ? this.props.item.name : 'nothing'}
             </div>
         );
     }
