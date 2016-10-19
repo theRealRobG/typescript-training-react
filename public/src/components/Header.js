@@ -1,14 +1,14 @@
 import React, {PropTypes} from 'react';
 import { Link, IndexLink } from 'react-router';
 
-const Header = () => {
+function header() {
   return (
     <nav>
       <IndexLink to="/" activeClassName="active">Vending Machine</IndexLink>
       {" | "}
-      <Link to="/config" activeClassName="active">Config</Link>
+      <Link to="/admin" activeClassName="active">Admin</Link>
     </nav>
   );
 };
 
-export default Header;
+export default header;

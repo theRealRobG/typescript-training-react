@@ -1,27 +1,30 @@
-var debug = process.env.NODE_ENV !== "production";
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-module.exports = {
+const isDebug = process.env.NODE_ENV !== 'production';
+
+const config = {
     context: path.join(__dirname, '/public'),
-    devtool: debug ? "inline-sourcemap" : null,
-    entry: "./src/index.js",
+    devtool: isDebug ? 'inline-sourcemap' : null,
+    entry: './src/app.js',
     resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
     output: {
-        path: path.join(__dirname, "./public/scripts"),
-        filename: "scripts.min.js"
+        path: path.join(__dirname, './public/dist'),
+        filename: 'bundle.min.js'
     },
-    plugins: debug ? [] : [
+    plugins: isDebug ? [] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
     ],
     module: {
         loaders: [
-            {test: /\.ts(x?)$/, exclude: /node_modules/, loaders: ['babel', 'ts-loader']},
+            {test: /\.ts(x?)$/, exclude: /node_modules/, loaders: ['babel', 'ts']},
             {test: /\.js(x?)$/, exclude: /(node_modules\/|server\/)/, loader: 'babel'}
         ]
     }
 };
+
+module.exports = config;
