@@ -11,7 +11,8 @@ const config = {
     },
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'bundle.min.js'
+        filename: 'bundle.min.js',
+        publicPath: '/dist/'
     },
     plugins: isDebug ? [] : [
         new webpack.optimize.DedupePlugin(),
