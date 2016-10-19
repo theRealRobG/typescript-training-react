@@ -1,10 +1,14 @@
 import React from 'react';
 
-export default class Display extends React.Component<{}, {}> {
+interface Props {
+    i: number
+}
+
+export default class Display extends React.Component<Props, {}> {
     render() {
         return (
             <div id="display">
-                Display123
+                Display { this.props.i}
             </div>
         );
     }
