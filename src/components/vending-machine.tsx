@@ -8,7 +8,7 @@ export default class VendingMachine extends React.Component<{}, {}> {
         return (
             <div>
                 <h1>Hello Vending Machine!</h1>
-                <div id="vending-machine" className="border red">
+                <div id="vending-machine" className="container">
                     <ProductsContainer />
                     <Display />
                     <Keyboard />
