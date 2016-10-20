@@ -100,19 +100,19 @@ body {
     left: 0;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-position-y: 60px;
+    background-position-y: 40px;
     z-index: 4;
 }
 .item:nth-child(2) {
-    background-position-y: 45px;
+    background-position-y: 25px;
     z-index: 3;
 }
 .item:nth-child(3) {
-    background-position-y: 30px;
+    background-position-y: 10px;
     z-index: 2;
 }
 .item:nth-child(4) {
-    background-position-y: 15px;
+    background-position-y: -5px;
     z-index: 1;
 }
 .item:nth-child(n+4) {

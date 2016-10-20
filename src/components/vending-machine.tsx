@@ -27,8 +27,15 @@ export default class VendingMachine extends React.Component<{}, State> {
         this.setState(Object.assign(this.state, { textToDisplay }))
     }
 
-    private onItemCodeEntered(itemCode: string) {
-        //TODO: remove from item list
+    private onItemCodeEntered(slotCode: string) {
+        let newState = Object.assign({}, this.state);
+
+        const itemToModify = newState.config.items.find(item => item.position === slotCode && item.stock > 0);
+        if (itemToModify) {
+            itemToModify.stock--;
+        }
+
+        this.setState(newState);
     }
 
     public render() {

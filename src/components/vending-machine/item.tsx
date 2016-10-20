@@ -5,5 +5,5 @@ interface Props {
 }
 
 export default (props: Props) => {
-    return <img className="item" src={props.imageUrl} />;
+    return <div className="item" style={{backgroundImage: `url(${props.imageUrl})`}} />;
 }
