@@ -22,7 +22,7 @@ export default class Slot extends React.Component<Props, {}> {
 
         return (
             <div className="slot">
-                { getImageUrlsForItems().map(imageUrl => <ItemComponent imageUrl={imageUrl} />) }
+                { getImageUrlsForItems().map(imageUrl => <ItemComponent key={this.props.code} imageUrl={imageUrl} />) }
                 <div className="slot-label">{this.props.code}</div>
             </div>
         );
