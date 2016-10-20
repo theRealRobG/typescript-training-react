@@ -14,7 +14,7 @@ export default class VendingMachine extends React.Component<{}, State> {
         super();
         this.state = {
             textToDisplay: '',
-            config: { items: [], columns: 0, rows: 0 }
+            config: { items: [], codes: [], columns: 0, rows: 0 }
         };
     }
 
@@ -37,6 +37,7 @@ export default class VendingMachine extends React.Component<{}, State> {
                 <div id="vending-machine" className="container">
                     <ProductsContainer
                         items={this.state.config.items}
+                        codes={this.state.config.codes}
                         rows={this.state.config.rows}
                         columns={this.state.config.columns}
                         />
