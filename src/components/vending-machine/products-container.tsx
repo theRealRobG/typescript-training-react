@@ -17,27 +17,24 @@ interface SlotData {
 export default class ProductsContainer extends React.Component<Props, {}> {
 
     private getRowsOfSlots(): Array<Array<SlotData>> {
-
-        const rows = new Array<Array<SlotData>>(this.props.rows);
-        rows.forEach((columns, index) => {
-            const rowCode = this.getCodeForIndex(index);
-            columns = new Array<SlotData>(this.props.columns);
-            columns.forEach((column, index) => {
-                const columnCode = this.getCodeForIndex(index);
-                column = {
-                    code: rowCode + columnCode,
-                    item: null
-                };
-            })
-        });
-
+        let rows = new Array(this.props.rows);
+        for (let i = 0; i < rows.length; i++) {
+            let columns = new Array(this.props.columns);
+            for (let j = 0; j < columns.length; j++) {
+                columns[j] = {
+                    code: this.getCodeForIndex(i) + this.getCodeForIndex(j),
+                    item: this.getItemForPosition([i, j])
+                }
+            }
+            rows[i] = columns;
+        }
         return rows;
     }
     
     private getItemForPosition(positon: [number, number] ) {
         return this.props.items.find((item) => {
             return item.position[0] === positon[0] && item.position[1] === item.position[1];
-        })
+        });
     }
 
     private getCodeForIndex(index: number) {
@@ -45,15 +42,16 @@ export default class ProductsContainer extends React.Component<Props, {}> {
     }
 
     render() {
+        let rowsForSlots = this.getRowsOfSlots();
         return (
             <div id="products-container" className="container">
-                {this.getRowsOfSlots().map((columns) => (
-                    <div className="row">
+                {rowsForSlots.map((columns, index) => {return (
+                    <div key={rowsForSlots[index][0].code[0]} className="row">
                         {columns.map((column) => {
-                            <Slot item={column.item} code={column.code} />
-                        })};
+                            return <Slot key={column.code[1]} item={column.item} code={column.code} />;
+                        })}
                     </div>
-                ))}
+                )})}
             </div>
         );
     }

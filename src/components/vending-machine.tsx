@@ -20,6 +20,7 @@ export default class VendingMachine extends React.Component<{}, State> {
 
     public componentDidMount() {
         const config = getConfig();
+        this.setState(Object.assign(this.state, {config}));
     }
 
     private handleTextToDisplayChanged(textToDisplay: string) {

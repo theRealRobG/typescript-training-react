@@ -2,7 +2,7 @@ import React from 'react'
 import { Item } from '../../services/config';
 
 interface Props {
-    item: Item,
+    item?: Item,
     code: string;
 }
 
