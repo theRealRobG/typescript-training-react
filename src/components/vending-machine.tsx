@@ -9,7 +9,6 @@ interface State {
     textToDisplay: string;
 }
 
-
 export default class VendingMachine extends React.Component<{}, State> {
     constructor() {
         super();
@@ -21,15 +20,14 @@ export default class VendingMachine extends React.Component<{}, State> {
 
     public componentDidMount() {
         const config = getConfig();
-        this.setState({ config, i: 0 });
-
-        setInterval(() => {
-            this.setState({ config, i: this.state.i + 1 });
-        }, 1000);
     }
 
     private handleTextToDisplayChanged(textToDisplay: string) {
         this.setState(Object.assign(this.state, { textToDisplay }))
+    }
+
+    private onItemCodeEntered(itemCode: string) {
+        //TODO: remove from item list
     }
 
     public render() {
@@ -43,7 +41,7 @@ export default class VendingMachine extends React.Component<{}, State> {
                         columns={this.state.config.columns}
                         />
                     <Display text={this.state.textToDisplay} />
-                    <Keyboard displayText={(text) => this.handleTextToDisplayChanged(text)} sequenceLenght={2} onSequenceFinished={() => {}} />
+                    <Keyboard displayText={(text) => this.handleTextToDisplayChanged(text)} sequenceLenght={2} onSequenceFinished={(code) => { this.onItemCodeEntered(code) } } />
                 </div>
             </div>
         );
