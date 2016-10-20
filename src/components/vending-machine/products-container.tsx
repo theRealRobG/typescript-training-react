@@ -16,8 +16,8 @@ interface SlotData {
 
 export default class ProductsContainer extends React.Component<Props, {}> {
 
-    private generateSlots(): Array<Array<SlotData>> {
-        
+    private getRowsOfSlots(): Array<Array<SlotData>> {
+
         const rows = new Array<Array<SlotData>>(this.props.rows);
         rows.forEach((columns, index) => {
             const rowCode = this.getCodeForIndex(index);
@@ -31,7 +31,13 @@ export default class ProductsContainer extends React.Component<Props, {}> {
             })
         });
 
-       return rows;
+        return rows;
+    }
+    
+    private getItemForPosition(positon: [number, number] ) {
+        return this.props.items.find((item) => {
+            return item.position[0] === positon[0] && item.position[1] === item.position[1];
+        })
     }
 
     private getCodeForIndex(index: number) {
@@ -41,8 +47,12 @@ export default class ProductsContainer extends React.Component<Props, {}> {
     render() {
         return (
             <div id="products-container" className="container">
-                {this.generateSlots().map((slotData) => (
-                    <div />
+                {this.getRowsOfSlots().map((columns) => (
+                    <div className="row">
+                        {columns.map((column) => {
+                            <Slot item={column.item} code={column.code} />
+                        })};
+                    </div>
                 ))}
             </div>
         );
