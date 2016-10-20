@@ -15,7 +15,7 @@ export type Item = {
 
 export function getConfig(): Config {
     return {
-        rows: 4,
+        rows: 3,
         columns: 3,
         items: [
             { name: 'Milk', price: 2, stock: 4, position: 'BB', imageUrl: "images/can.png" },

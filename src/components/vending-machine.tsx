@@ -40,18 +40,15 @@ export default class VendingMachine extends React.Component<{}, State> {
 
     public render() {
         return (
-            <div>
-                <h1>Hello Vending Machine!</h1>
-                <div id="vending-machine" className="container">
-                    <ProductsContainer
-                        items={this.state.config.items}
-                        codes={this.state.config.codes}
-                        rows={this.state.config.rows}
-                        columns={this.state.config.columns}
-                        />
-                    <Display text={this.state.textToDisplay} />
-                    <Keyboard displayText={(text) => this.handleTextToDisplayChanged(text)} sequenceLenght={2} onSequenceFinished={(code) => { this.onItemCodeEntered(code) } } />
-                </div>
+            <div id="vending-machine" className="container">
+                <ProductsContainer
+                    items={this.state.config.items}
+                    codes={this.state.config.codes}
+                    rows={this.state.config.rows}
+                    columns={this.state.config.columns}
+                    />
+                <Display text={this.state.textToDisplay} />
+                <Keyboard displayText={(text) => this.handleTextToDisplayChanged(text)} sequenceLenght={2} onSequenceFinished={(code) => { this.onItemCodeEntered(code) } } />
             </div>
         );
     }
