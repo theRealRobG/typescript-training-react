@@ -6,17 +6,20 @@ import { getConfig, Config } from '../services/config';
 
 interface State {
     config: Config;
-    i: number;
+    textToDisplay: string;
 }
 
 
 export default class VendingMachine extends React.Component<{}, State> {
     constructor() {
         super();
-        this.state = { i: 0, config: { items: [], columns: 0, rows: 0 } };
+        this.state = {
+            textToDisplay: '',
+            config: { items: [], columns: 0, rows: 0 }
+        };
     }
 
-    componentDidMount() {
+    public componentDidMount() {
         const config = getConfig();
         this.setState({ config, i: 0 });
 
@@ -25,7 +28,11 @@ export default class VendingMachine extends React.Component<{}, State> {
         }, 1000);
     }
 
-    render() {
+    private handleTextToDisplayChanged(textToDisplay: string) {
+        this.setState(Object.assign(this.state, { textToDisplay }))
+    }
+
+    public render() {
         return (
             <div>
                 <h1>Hello Vending Machine!</h1>
@@ -35,8 +42,8 @@ export default class VendingMachine extends React.Component<{}, State> {
                         rows={this.state.config.rows}
                         columns={this.state.config.columns}
                         />
-                    <Display i={this.state.i} />
-                    <Keyboard />
+                    <Display text={this.state.textToDisplay} />
+                    <Keyboard displayText={(text) => this.handleTextToDisplayChanged(text)} sequenceLenght={2} onSequenceFinished={() => {}} />
                 </div>
             </div>
         );

@@ -1,14 +1,14 @@
 import React from 'react';
 
 interface Props {
-    i: number
+    text: string;
 }
 
 export default class Display extends React.Component<Props, {}> {
     render() {
         return (
             <div id="display">
-                Display { this.props.i}
+                {this.props.text}
             </div>
         );
     }
