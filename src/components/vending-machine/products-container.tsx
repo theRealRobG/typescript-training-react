@@ -31,9 +31,9 @@ export default class ProductsContainer extends React.Component<Props, {}> {
         return rows;
     }
     
-    private getItemForPosition(positon: [number, number] ) {
+    private getItemForPosition(position: [number, number] ) {
         return this.props.items.find((item) => {
-            return item.position[0] === positon[0] && item.position[1] === item.position[1];
+            return item.position[0] === position[0] && item.position[1] === position[1];
         });
     }
 
@@ -42,13 +42,12 @@ export default class ProductsContainer extends React.Component<Props, {}> {
     }
 
     render() {
-        let rowsForSlots = this.getRowsOfSlots();
         return (
             <div id="products-container" className="container">
-                {rowsForSlots.map((columns, index) => {return (
-                    <div key={rowsForSlots[index][0].code[0]} className="row">
-                        {columns.map((column) => {
-                            return <Slot key={column.code[1]} item={column.item} code={column.code} />;
+                {this.getRowsOfSlots().map((columns, rowIndex) => {return (
+                    <div key={rowIndex} className="row">
+                        {columns.map((column, columnIndex) => {
+                            return <Slot key={columnIndex} item={column.item} code={column.code} />;
                         })}
                     </div>
                 )})}

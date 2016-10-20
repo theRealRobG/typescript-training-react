@@ -8,21 +8,19 @@ interface Props {
 }
 
 export default class Slot extends React.Component<Props, {}> {
-    render() {
-        const getImageUrlsForItems = (): Array<string> => {
-            if (!this.props.item) {
-                return [];
-            }
-            let imageUrls = new Array<string>();
-            for (let i = 0; i < this.props.item.stock; i++) {
-                imageUrls.push(this.props.item.imageUrl);
-            }
-            return imageUrls;
+    private getItems() {
+        const items = new Array<JSX.Element>();
+        let stockCount = this.props.item ? this.props.item.stock : 0;
+        while (stockCount--) {
+            items.push(<ItemComponent key={stockCount} imageUrl={this.props.item.imageUrl} />);
         }
+        return items;
+    }
 
+    render() {
         return (
             <div className="slot">
-                { getImageUrlsForItems().map(imageUrl => <ItemComponent key={this.props.code} imageUrl={imageUrl} />) }
+                { this.getItems() }
                 <div className="slot-label">{this.props.code}</div>
             </div>
         );
