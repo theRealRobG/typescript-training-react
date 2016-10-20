@@ -17,16 +17,16 @@ interface SlotData {
 export default class ProductsContainer extends React.Component<Props, {}> {
 
     private getRowsOfSlots(): Array<Array<SlotData>> {
-        let rows = new Array(this.props.rows);
-        for (let i = 0; i < rows.length; i++) {
-            let columns = new Array(this.props.columns);
-            for (let j = 0; j < columns.length; j++) {
-                columns[j] = {
-                    code: this.getCodeForIndex(i) + this.getCodeForIndex(j),
-                    item: this.getItemForPosition([i, j])
+        const rows = [];
+        for (let rowIndex = 0; rowIndex < this.props.rows; rowIndex++) {
+            const columns = [];
+            for (let columnIndex = 0; columnIndex < this.props.columns; columnIndex++) {
+                columns[columnIndex] = {
+                    code: this.getCodeForIndex(rowIndex) + this.getCodeForIndex(columnIndex),
+                    item: this.getItemForPosition([rowIndex, columnIndex])
                 }
             }
-            rows[i] = columns;
+            rows[rowIndex] = columns;
         }
         return rows;
     }
