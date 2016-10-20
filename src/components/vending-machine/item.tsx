@@ -4,8 +4,6 @@ interface Props {
     imageUrl: string
 }
 
-export default class Item extends React.Component<Props, {}> {
-    render() {
-        return <img className="item" src={this.props.imageUrl} />;
-    }
+export default (props: Props) => {
+    return <img className="item" src={props.imageUrl} />;
 }

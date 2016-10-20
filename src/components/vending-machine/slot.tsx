@@ -7,22 +7,20 @@ interface Props {
     code: string;
 }
 
-export default class Slot extends React.Component<Props, {}> {
-    private getItems() {
+export default (props: Props) => {
+    function getItems() {
         const items = new Array<JSX.Element>();
-        let stockCount = this.props.item ? this.props.item.stock : 0;
+        let stockCount = props.item ? props.item.stock : 0;
         while (stockCount--) {
-            items.push(<ItemComponent key={stockCount} imageUrl={this.props.item.imageUrl} />);
+            items.push(<ItemComponent key={stockCount} imageUrl={props.item.imageUrl} />);
         }
         return items;
     }
 
-    render() {
-        return (
-            <div className="slot">
-                { this.getItems() }
-                <div className="slot-label">{this.props.code}</div>
-            </div>
-        );
-    }
+    return (
+        <div className="slot">
+            { getItems() }
+            <div className="slot-label">{props.code}</div>
+        </div>
+    );
 }

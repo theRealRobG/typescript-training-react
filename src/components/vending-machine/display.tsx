@@ -4,12 +4,10 @@ interface Props {
     text: string;
 }
 
-export default class Display extends React.Component<Props, {}> {
-    render() {
-        return (
-            <div id="display">
-                {this.props.text}
-            </div>
-        );
-    }
+export default (props: Props) => {
+    return (
+        <div id="display">
+            {props.text}
+        </div>
+    );
 }
