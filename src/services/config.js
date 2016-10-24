@@ -1,19 +1,4 @@
-export type Config = {
-    rows: number,
-    columns: number,
-    items: Array<Item>
-    codes: Array<string>
-}
-
-export type Item = {
-    name: string,
-    imageUrl: string,
-    price: number,
-    stock: number,
-    position: string,
-}
-
-export function getConfig(): Config {
+export function getConfig() {
     return {
         rows: 3,
         columns: 3,

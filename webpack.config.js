@@ -7,7 +7,7 @@ const config = {
     devtool: isDebug ? 'inline-sourcemap' : null,
     entry: './src/app.jsx',
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx']
+        extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx']
     },
     output: {
         path: path.join(__dirname, './dist'),
@@ -21,7 +21,6 @@ const config = {
     ],
     module: {
         loaders: [
-            {test: /\.ts(x?)$/, exclude: /node_modules/, loaders: ['babel', 'ts']},
             {test: /\.js(x?)$/, exclude: /node_modules/, loader: 'babel'}
         ]
     }
